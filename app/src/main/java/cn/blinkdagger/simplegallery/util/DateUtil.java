@@ -8,18 +8,25 @@ import java.util.Date;
 import java.util.Locale;
 
 public class DateUtil {
+
+    public static SimpleDateFormat simpleFormatter = new SimpleDateFormat("yyyy年MM月dd日", Locale.CHINA);
+
     /**
      * 根据时间戳获取年月日
      *
      * @param timemilles
      * @return
      */
-    public static SimpleDateFormat simpleFormatter = new SimpleDateFormat("yyyy年MM月dd日", Locale.CHINA);
-
     public static String getShortDateString(long timemilles) {
         return simpleFormatter.format(new Date(timemilles));
     }
 
+    /**
+     * 截取年月日后的时间戳
+     *
+     * @param timemilles
+     * @return
+     */
     public static long getShortDateMilles(long timemilles) {
 
         Calendar calendar =Calendar.getInstance(Locale.CHINA);

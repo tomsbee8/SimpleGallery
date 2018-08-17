@@ -21,6 +21,9 @@ import cn.blinkdagger.simplegallery.entity.IndexBean;
 import cn.blinkdagger.simplegallery.entity.PhotoBean;
 import cn.blinkdagger.simplegallery.loader.SimpleImageLoader;
 
+/**
+ * 适配器
+ */
 public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public static final int GROUP_ITEM_TYPE = 0;
@@ -38,7 +41,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private void initGroupIndex() {
         if (dataSourceList != null && !dataSourceList.isEmpty()) {
             int position = 0;
-            for (int i = 0; i < dataSourceList.size() - 1; i++) {
+            for (int i = 0; i < dataSourceList.size(); i++) {
 
                 Log.e("Adapater:", "i=" + i + "     " + "position =" + position + "个数" + dataSourceList.get(i).getChildList().size());
                 IndexBean groupIndexBean = IndexBean.newGroupIndexBean(i);
@@ -96,8 +99,8 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 PhotoBean photoBean = dataSourceList.get(groupIndex).getChildList().get(childIndex);
                 File file = new File(photoBean.getPhotoPath());
                 itemHolder.imageView.setImageURI(Uri.fromFile(file));
-                if(photoBean.getPhotoPath()!=null){
-                    SimpleImageLoader.loadImage(context,itemHolder.imageView,photoBean.getPhotoPath());
+                if (photoBean.getPhotoPath() != null) {
+                    SimpleImageLoader.loadImage(context, itemHolder.imageView, photoBean.getPhotoPath());
                 }
             }
         }
@@ -111,7 +114,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }
         // 分组group数目+ child数目
         int count = dataSourceList.size();
-        for (int i = 0; i < dataSourceList.size() - 1; i++) {
+        for (int i = 0; i < dataSourceList.size(); i++) {
             GroupChildsEntity item = dataSourceList.get(i);
             if (item.getChildList() != null && !item.getChildList().isEmpty()) {
                 count = count + item.getChildList().size();

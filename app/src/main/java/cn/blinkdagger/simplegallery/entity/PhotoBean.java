@@ -1,5 +1,8 @@
 package cn.blinkdagger.simplegallery.entity;
 
+/**
+ * 图片元素实体类
+ */
 public class PhotoBean {
     /**
      * 路径

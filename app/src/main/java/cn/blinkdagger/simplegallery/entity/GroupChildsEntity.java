@@ -2,6 +2,9 @@ package cn.blinkdagger.simplegallery.entity;
 
 import java.util.List;
 
+/**
+ * 分组栏实体类
+ */
 public class GroupChildsEntity {
     private GroupBean groupBean;
     private List<PhotoBean> childList;

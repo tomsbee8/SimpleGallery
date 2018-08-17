@@ -1,9 +1,21 @@
 package cn.blinkdagger.simplegallery.entity;
 
+/**
+ * 列表item序号信息类
+ */
 public class IndexBean {
 
+    /**
+     * 是否group元素
+     */
     private boolean isGroup;
+    /**
+     * group序号
+     */
     private int groupIndex;
+    /**
+     * child序号
+     */
     private int childIndex;
 
     private IndexBean(boolean isGroup, int groupIndex, int childIndex) {

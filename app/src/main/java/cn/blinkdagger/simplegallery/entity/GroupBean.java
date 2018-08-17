@@ -1,5 +1,8 @@
 package cn.blinkdagger.simplegallery.entity;
 
+/**
+ * 分组group实体类
+ */
 public class GroupBean {
     /**
      * 日期
