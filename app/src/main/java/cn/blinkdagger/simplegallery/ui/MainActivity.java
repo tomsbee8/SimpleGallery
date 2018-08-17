@@ -42,6 +42,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         initData();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     private void initView() {
         galleryRV = findViewById(R.id.gallery_rv);
         final int spanCount = 3;

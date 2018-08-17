@@ -14,7 +14,7 @@ public class BitmapUtil {
      * @return
      *
      */
-    public static Bitmap decodeSampledBitmapFromPath(String  path, int reqWidth, int reqHeight) {
+    public static Bitmap decodeBitmapFromPath(String  path, int reqWidth, int reqHeight) {
 
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;

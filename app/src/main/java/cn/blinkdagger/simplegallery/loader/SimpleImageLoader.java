@@ -139,10 +139,14 @@ public class SimpleImageLoader {
      */
     private void loadBitmapFromDisk(final ImageView imageView, final String imagePath) {
         imageView.setTag(imagePath);
+        // 获取ImageView的真实高度
+        final int height =imageView.getMeasuredHeight();
+        final int width =imageView.getMeasuredWidth();
+
         Runnable loadBitmapTask = new Runnable() {
             @Override
             public void run() {
-                Bitmap bitmap = BitmapUtil.decodeSampledBitmapFromPath(imagePath,0,0);
+                Bitmap bitmap = BitmapUtil.decodeBitmapFromPath(imagePath,width,height);
                 if (bitmap != null) {
                     addBitmapToMemoryCache(imagePath, bitmap);
                     LoaderResult result = new LoaderResult(imageView, imagePath, bitmap);

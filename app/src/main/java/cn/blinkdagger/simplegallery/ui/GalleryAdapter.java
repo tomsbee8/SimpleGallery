@@ -29,7 +29,13 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public static final int GROUP_ITEM_TYPE = 0;
     public static final int CHILD_ITEM_TYPE = 1;
     private Context context;
-    private List<GroupChildsEntity> dataSourceList;// 数据源
+    /**
+     *  数据源
+     */
+    private List<GroupChildsEntity> dataSourceList;
+    /**
+     * 存放每个item位置元素的child 序号和group序号信息
+     */
     private SparseArray<IndexBean> groupIndexList = new SparseArray<IndexBean>();
 
     public GalleryAdapter(Context context, List<GroupChildsEntity> dataSourceList) {
