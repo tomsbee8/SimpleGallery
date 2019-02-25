@@ -1,7 +1,6 @@
 package cn.blinkdagger.simplegallery.ui;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.SparseArray;
@@ -12,7 +11,6 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.File;
 import java.util.List;
 
 import cn.blinkdagger.simplegallery.R;
@@ -103,10 +101,10 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 int groupIndex = indexBean.getGroupIndex();
                 int childIndex = indexBean.getChildIndex();
                 PhotoBean photoBean = dataSourceList.get(groupIndex).getChildList().get(childIndex);
-                File file = new File(photoBean.getPhotoPath());
-                itemHolder.imageView.setImageURI(Uri.fromFile(file));
+
                 if (photoBean.getPhotoPath() != null) {
                     SimpleImageLoader.loadImage(context, itemHolder.imageView, photoBean.getPhotoPath());
+//                    Glide.with(context).load(photoBean.getPhotoPath()).into(itemHolder.imageView);
                 }
             }
         }

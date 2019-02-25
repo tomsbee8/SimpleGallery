@@ -3,6 +3,7 @@ package cn.blinkdagger.simplegallery.util;
 import android.content.Context;
 import android.database.Cursor;
 import android.provider.MediaStore;
+import android.util.DisplayMetrics;
 import android.util.Log;
 
 import java.io.File;
@@ -66,5 +67,20 @@ public class GalleryUtil {
             }
         }
         return allPhotoes;
+    }
+
+    /**
+     * dp 转 px
+     *
+     * @param context 上下文
+     * @param dp      dp 值
+     * @return px 值
+     */
+    public static int dp2px(Context context, float dp) {
+        if (context == null) {
+            return 0;
+        }
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
     }
 }

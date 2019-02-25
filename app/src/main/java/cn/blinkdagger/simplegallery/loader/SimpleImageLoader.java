@@ -19,7 +19,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import cn.blinkdagger.simplegallery.R;
 import cn.blinkdagger.simplegallery.util.BitmapUtil;
+import cn.blinkdagger.simplegallery.util.GalleryUtil;
 import cn.blinkdagger.simplegallery.util.Md5Util;
+import cn.blinkdagger.simplegallery.util.ViewUtil;
 
 
 /**
@@ -140,8 +142,11 @@ public class SimpleImageLoader {
     private void loadBitmapFromDisk(final ImageView imageView, final String imagePath) {
         imageView.setTag(imagePath);
         // 获取ImageView的真实高度
-        final int height =imageView.getMeasuredHeight();
-        final int width =imageView.getMeasuredWidth();
+        final int height = ViewUtil.getTargetWidth(imageView);
+        final int width =ViewUtil.getTargetHeight(imageView);
+        Log.e("图片的高度",""+width);
+        Log.e("图片的宽度",""+height);
+        Log.e("100dp =",""+ GalleryUtil.dp2px(imageView.getContext(),100));
 
         Runnable loadBitmapTask = new Runnable() {
             @Override
@@ -177,5 +182,6 @@ public class SimpleImageLoader {
     private static String generateKeyFromUrl(String url) {
         return Md5Util.getMd5Value(url);
     }
+
 
 }
